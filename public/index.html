@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Test example</title>
+	<link rel="stylesheet" href="libs\bootstrap\dist\css\bootstrap.min.css">
+</head>
+
+<body>
+	<style>
+		body {
+			background: #f4f4f4;
+		}
+		
+		.border {
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+			padding: 20px;
+			background: #fff;
+		}
+		
+		.container {
+			margin-top: 20%
+		}
+	</style>
+	<div class="container">
+		<div class="col-lg-6 col-lg-offset-3 border">
+			<form action="submit">
+				<div class="form-group">
+					<label for="enter">Enter code phrase</label>
+					<input class="form-control" type="text" id='enter'>
+				</div>
+				<button class="btn btn-primary" id="login">Login</button>
+				<button class="btn btn-success" id="register" data-toggle="modal" data-target="#myModal">Register</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="text-center">Create your code phrase</h4>
+				</div>
+				<div class="modal-body">
+					<form action="submit">
+						<div class="form-group">
+							<label for="enter">Enter new code phrase</label>
+							<input class="form-control" type="text" id='newEnter'>
+						</div>						
+						<button class="btn btn-success" id="createNewPhase">Register</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="libs\jquery\dist\jquery.min.js"></script>
+	<script src="libs\bootstrap\dist\js\bootstrap.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>

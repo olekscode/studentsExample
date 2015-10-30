@@ -1,0 +1,12 @@
+{
+  "name": "itClaster",
+  "version": "1.0.0",
+  "authors": [
+    "Sergiy_Ryazanov"
+  ],
+  "main": "public/app.js",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "*"
+  }
+}
