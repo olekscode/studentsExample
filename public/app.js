@@ -2,19 +2,21 @@ $('document').ready(function () {
 
 	var controller = {
 		getData: function () {
-			return $('form').find('#newEnter').val()
+			return {
+				"phrase": $('form').find('#newEnter').val()
+			}
 		},
 		sendRequest: function (data) {
 			var res = null;
 			$.post("/newphrase", data)
-				.done(function (data) {					
+				.done(function (data) {
 					loginView.init(data);
-				})			
+				})
 		}
 	}
 
 	var loginView = {
-		init: function (data) {			
+		init: function (data) {
 			$('.border').empty();
 			$('.border').html(this.createFragment(data));
 			$('#myModal').modal('hide');
@@ -39,7 +41,7 @@ $('document').ready(function () {
 			})
 			return exit
 		},
-		createFragment(data){
+		createFragment(data) {
 			var element = document.createDocumentFragment();
 			element.appendChild(this.text(data));
 			element.appendChild(this.changeButton());
@@ -84,21 +86,25 @@ $('document').ready(function () {
 
 	})
 
-	function showChange(el){
+	function showChange(el) {
 		$(el).hide();
 		$('.btn-info').parent().prepend('<form class="form-group"><input type="text" class="form-control" /><button class="btn btn-primary" id="done">Done</button></form>');
-		$('#done').on('click', function(e){
+		$('#done').on('click', function (e) {
 			e.preventDefault();
 			$('form.form-group').hide();
-			$.post("/changephrase", $('form.form-group input').val())
+			var newPhrase = $('h3').text();
+			$.post("/changephrase", {
+				oldphrase: { "phrase": newPhrase.replace('Your code phrase: ', "") },
+				newphrase: { "phrase": $('form.form-group input').val() }
+			})
 				.done(function (data) {
-					$(el).text('Your code phrase: ' + data).show();			
-					
-				})		
-			
-			
+					$(el).text('Your code phrase: ' + data).show();
+
+				})
+
+
 		})
-		
+
 	}
 
 	$('#register').on('click', function (e) {
@@ -107,7 +113,7 @@ $('document').ready(function () {
 
 	$('#createNewPhase').on('click', function (e) {
 		e.preventDefault();
-		controller.sendRequest(controller.getData());		
+		controller.sendRequest(controller.getData());
 	})
 })
 
