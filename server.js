@@ -18,6 +18,13 @@ app.post("/newphrase", function (req, res) {
     //res.send(500, { error: "hi, there was an error" });
 })
 
+app.post("/changephrase", function (req, res) {
+    res.send('change');
+    //res.send(500, { error: "hi, there was an error" });
+})
+
+
+
 /* serves main page */
 app.get("*", function (req, res) {
     res.sendFile('public/index.html', {

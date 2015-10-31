@@ -65,6 +65,9 @@ $('document').ready(function () {
 				var change = document.createElement('button');
 				change.innerText = "Change";
 				change.className = 'btn btn-info'
+				$(change).on('click', function (e) {
+					showChange(text);
+				})
 				element.appendChild(change);
 				var exit = document.createElement('button');
 				exit.innerText = "Exit";
@@ -74,13 +77,29 @@ $('document').ready(function () {
 				})
 				element.appendChild(exit);
 				$('.border').html(element);
-
 			})
 			.fail(function () {
 				alert('Wrong code phrase')
 			});
 
 	})
+
+	function showChange(el){
+		$(el).hide();
+		$('.btn-info').parent().prepend('<form class="form-group"><input type="text" class="form-control" /><button class="btn btn-primary" id="done">Done</button></form>');
+		$('#done').on('click', function(e){
+			e.preventDefault();
+			$('form.form-group').hide();
+			$.post("/changephrase", $('form.form-group input').val())
+				.done(function (data) {
+					$(el).text('Your code phrase: ' + data).show();			
+					
+				})		
+			
+			
+		})
+		
+	}
 
 	$('#register').on('click', function (e) {
 		e.preventDefault();
@@ -89,7 +108,6 @@ $('document').ready(function () {
 	$('#createNewPhase').on('click', function (e) {
 		e.preventDefault();
 		controller.sendRequest(controller.getData());		
-		
 	})
 })
 
