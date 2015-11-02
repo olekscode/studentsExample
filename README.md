@@ -13,6 +13,7 @@
 - Javascript код буде первірятись за допомогою сервісу http://jshint.com/, уникайте помилок та попереджень (вони можуть бути присутні, більшість з них не є критичними але повідомлення типу Missing semicolon та unused variables будуть враховуватись).
 - Javascript не має бути глобальних змінних
 - Бажано відокремлювати функціонал по принципу MVC та намагатись діяти по принципу: одна функція виконує 1 конкретну дію та не містить багато коду.
+- Дотримуватись принципу [DRY](https://ru.wikipedia.org/wiki/Don%E2%80%99t_repeat_yourself)
 
 # Література :)
 - Localstorage: [ENG](http://www.w3schools.com/html/html5_webstorage.asp) | [RU](http://vexell.ru/2011/11/html5-local-storage/)
