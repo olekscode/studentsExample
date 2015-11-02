@@ -4,18 +4,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test example</title>
+	<!-- Для створення сторінки використовувася фреймворк bootstrap версії 3-->
 	<link rel="stylesheet" href="libs\bootstrap\dist\css\bootstrap.min.css">
 </head>
 
 <body>
+	<!-- Таблиця стилів для сторінки. Маю бути відокремлена, і підключена через link тег-->
 	<style>
 		body {
 			background: #f4f4f4;
 		}
-		.btn{
-			margin-top:10px;
-			margin-right:10px
+		
+		.btn {
+			margin-top: 10px;
+			margin-right: 10px
 		}
+		
 		.border {
 			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 			padding: 20px;
@@ -26,6 +30,7 @@
 			margin-top: 20%
 		}
 	</style>
+	<!-- розмітка сторінки логіну-->
 	<div class="container">
 		<div class="col-lg-6 col-lg-offset-3 border">
 			<form action="submit">
@@ -38,7 +43,7 @@
 			</form>
 		</div>
 	</div>
-
+	<!-- розмітка модального вікна реєстрації-->
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -50,14 +55,14 @@
 						<div class="form-group">
 							<label for="enter">Enter new code phrase</label>
 							<input class="form-control" type="text" id='newEnter'>
-						</div>						
+						</div>
 						<button class="btn btn-success" id="createNewPhase">Register</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	<!-- підключення скриптів після побудови DOM дерева-->
 	<script src="libs\jquery\dist\jquery.min.js"></script>
 	<script src="libs\bootstrap\dist\js\bootstrap.min.js"></script>
 	<script src="app.js"></script>
