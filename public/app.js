@@ -20,7 +20,7 @@ $('document').ready(function () { //скрипти будуть виконува
 		init: function (data) {//функція яка створює вигляд головної сторіки
 			$('.border').empty();//знищує існуючі елементи в блоці з класом border
 			$('.border').html(this.createFragment(data));//додає новий елемент
-			$('#myModal').modal('hide');//ховає модальне вікно
+			$('#myModal').modal('hide');//ховає модальне вікно			
 		},
 		text: function (data) {//функція для створення заголовка 
 			var text = document.createElement('h3');//створюється елемент
@@ -31,6 +31,7 @@ $('document').ready(function () { //скрипти будуть виконува
 			var change = document.createElement('button');//створення кнопки
 			change.innerText = "Change";//текст кнопки
 			change.className = 'btn btn-info'//кнопка отримує клас
+			
 			return change//повертає новостворений елемент
 		},
 		exit: function () {//функція для виходу з аккаунта
@@ -43,9 +44,16 @@ $('document').ready(function () { //скрипти будуть виконува
 			return exit//повертає новостворений елемент
 		},
 		createFragment(data) {//функція для створення контейнера, який тримає в собі нові елементи
+			var button = this.changeButton();
+			var header = this.text(data);
+			
+			$(button).on('click', function (e) {//створення event lister типу 'click' на кнопці
+					showChange(header);//створення нового поля вводу
+			})
+			
 			var element = document.createDocumentFragment();//створення порожнього DOM елементу
-			element.appendChild(this.text(data));//в порожній елемент додається заголовок
-			element.appendChild(this.changeButton());//в порожній елемент додається кнопка зміни фрази
+			element.appendChild(header);//в порожній елемент додається заголовок
+			element.appendChild(button);//в порожній елемент додається кнопка зміни фрази
 			element.appendChild(this.exit());//в порожній елемент додається кнопка виходу
 			return element//елемент вставляється в DOM дерево
 		}
@@ -53,7 +61,7 @@ $('document').ready(function () { //скрипти будуть виконува
 
 
 	//функція логінізації
-	$('#login').on('click', function (e) {//створення event lister типу 'click' на кнопці
+	$('#login').on('click', function (e) {//створення event lister типу 'click' на кнопці		
 		e.preventDefault();//запобігається звична поведінка браузера, в данному випадку відсилання данних та перезавантаження сторінки.
 		//функції аналогічні описаним в loginView та controller але не структуровані, як результат - код який важко читати і зрозуміти
 		var data = {
@@ -90,9 +98,11 @@ $('document').ready(function () { //скрипти будуть виконува
 	})
 
 	//функція для редагування кодової фрази, викликається при кліку на кнопку Change
-	function showChange(el) {//приймає елемент як параметр
+	function showChange(el) {//приймає елемент як параметр	
 		$(el).hide();
-		$('.btn-info').parent().prepend('<form class="form-group"><input type="text" class="form-control" /><button class="btn btn-primary" id="done">Done</button></form>');// в DOM дереві відюувається пошук елементу з класом .btn-info, 
+		var text = $(el).text(),
+		value = text.replace('Your code phrase: ', ""); //створення зміної для відображення існуючої фрази в полі вводу
+		$('.btn-info').parent().prepend('<form class="form-group"><input type="text" class="form-control" value="' + value + '"/><button class="btn btn-primary" id="done">Done</button></form>');// в DOM дереві відюувається пошук елементу з класом .btn-info, 
 		//вираховується його батьківський елемент, і в його вміст додається форма з кнопкою
 		$('#done').on('click', function (e) {
 			e.preventDefault();
