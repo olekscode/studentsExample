@@ -22,3 +22,10 @@
 - Javscript [RU tutorial](https://learn.javascript.ru/) | [ENG tutorial](https://www.codecademy.com/learn/javascript) | [ENG tutorial](http://www.w3schools.com/js/)
 - Jquery [RU](http://jqbook.net.ru/jquery/FAQ) | [RU](http://jquery-docs.ru/) | [ENG tutorial](https://www.codeschool.com/courses/try-jquery) | [ENG tutorial](https://www.codecademy.com/learn/jquery)
 - MVC [ENG](https://developer.chrome.com/apps/app_frameworks) | [ENG](https://alexatnet.com/articles/model-view-controller-mvc-javascript) | [RU](http://habrahabr.ru/post/181772/) | [RU](http://habrahabr.ru/post/215605/)
+
+# Завдання
+Завдання поділені на компоненти. Кожна компонента в описі має орієнтовну кількість осіб яких достатньо для її виконання.
+- Календар : https://trello.com/b/pWE8ApS8/calendar-6-8
+- Конвертор валют : https://trello.com/b/ld9ZwMdC/conventor-6-7
+- Персональний щоденник - https://trello.com/b/gXAFastE/diary-6-9
+- Список завдань - https://trello.com/b/sMq9CwIy/todo-list-4-5
